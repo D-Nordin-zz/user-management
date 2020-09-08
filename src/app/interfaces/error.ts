@@ -1,3 +1,3 @@
-interface FormError {
+export interface FormError {
     message: string;
 }

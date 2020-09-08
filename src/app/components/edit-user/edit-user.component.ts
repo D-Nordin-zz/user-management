@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { FormGroup, FormControl, Validators, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/interfaces/user';
+import { FormError } from 'src/app/interfaces/error';
 
 @Component({
   selector: 'app-edit-user',
@@ -12,7 +14,7 @@ export class EditUserComponent implements OnInit, OnDestroy {
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
   ) { }
 
   editing: boolean;
@@ -66,11 +68,13 @@ export class EditUserComponent implements OnInit, OnDestroy {
         this.userService.addUser(newUser).subscribe(message => {
           // submit some data to a toast and redirect to the home page
           this.router.navigate(['/home']);
+          alert('User added successfuly!');
         });
       } else {
         this.userService.editUser(newUser).subscribe(message => {
           // submit some data to a toast and redirect to the home page
           this.router.navigate(['/home']);
+          alert('User edited successfuly!');
         });
       }
     } else {

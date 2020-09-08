@@ -8,15 +8,13 @@ import { HeaderComponent } from './components/header/header.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     HeaderComponent,
-    EditUserComponent,
-    ToastComponent
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

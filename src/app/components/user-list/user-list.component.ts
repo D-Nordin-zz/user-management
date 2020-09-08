@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/service/user.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-user-list',
@@ -48,12 +49,12 @@ export class UserListComponent implements OnInit {
     this.userService.deleteUser(this.pendingUser).subscribe(data => {
       if ( data['message'] === 'user deleted') {
         // push something to a toast service
-        console.log('deleted');
+        alert('User deleted successfuly!');
         this.pendingUser = null;
         this.getUsers();
       } else {
         // push the fail message to the prompt
-        console.log('something failed when deleting');
+        alert('Something went wrong when deleting user!');
       }
     });
     this.showPrompt = false;
