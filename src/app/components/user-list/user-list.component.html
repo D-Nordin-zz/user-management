@@ -1,0 +1,43 @@
+<!-- row for the addition of a new user -->
+<div class="container">
+   <div>
+      <a routerLink='/newUser' class="link button"><strong>+</strong> Add Employee</a>
+   </div>
+   <table>
+      <tr>
+         <th>First Name</th>
+         <th>Last Name</th>
+         <th>Email</th>
+         <th>Birthday</th>
+         <th>Employment Status</th>
+         <th>Favorite Color</th>
+         <th colspan="2"></th>
+      </tr>
+      <ng-container *ngIf='userList != undefined'>
+         <tr *ngFor='let user of userList'>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.emailAddress}}</td>
+            <td>{{user.birthday}}</td>
+            <td>{{user.employmentStatus}}</td>
+            <td>{{user.favoriteColor}}</td>
+            <td><a (click)='setUser(user)' class="link">Edit</a></td>
+            <td><span (click)='showDeletePrompt(user)' class="warn link">Delete</span></td>
+         </tr>
+      </ng-container>
+   </table>
+   <div class="deleteContainer" *ngIf='showPrompt'>
+      <div class="deletePrompt">
+         <div class="center">
+            <h4>Delete user: {{pendingUser.firstName}} {{pendingUser.lastName}}?</h4>
+         </div>
+         <div class="center">
+            <button class="button-confirm" (click)='confirmDelete()'>yes</button>
+            <button class="button-deny" (click)='denyDelete()'>no</button>
+         </div>
+         <div class="center">
+            <span class="warn">WARNING! what you are about to do cannot be undone</span>
+         </div>
+      </div>
+   </div>
+</div>

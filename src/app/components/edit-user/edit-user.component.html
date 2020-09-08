@@ -1,0 +1,47 @@
+<div class="form-wrapper">
+    <h2 *ngIf='!editing'>Add User</h2>
+    <h2 *ngIf='editing'>Edit User</h2>
+    <form class="form-body" [formGroup]='userForm'>
+        <div class="row">
+            <div class="col">
+                <label class="required">First Name</label>
+                <input type="text" formControlName="firstName">
+            </div>
+            <div class="col">
+                <label class="required">Last Name</label>
+                <input type="text" formControlName="lastName">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="required">Email Address</label>
+                <input type="text" formControlName="email">
+            </div>
+            <div class="col">
+                <label class="required">Birthday</label>
+                <input type="date" formControlName="birthday">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="required">Employment Status</label>
+                <input type="text" formControlName="empStatus">
+            </div>
+            <div class="col">
+                <label>Favorite Color</label>
+                <input type="string" formControlName="favColor">
+            </div>
+        </div>
+        <div class="row">
+            <button (click)=submitForm() 
+            [ngClass]="userForm.valid ? 'button' : 'button-disabled'">Submit</button>
+        </div>
+    </form>
+
+    <div class="errors" *ngIf='errors.length > 0'>
+        <div *ngFor='let error of errors'>
+            {{error.message}}
+        </div>
+    </div>
+
+</div>

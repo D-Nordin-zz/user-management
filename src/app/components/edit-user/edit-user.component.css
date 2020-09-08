@@ -1,0 +1,75 @@
+h2{
+    margin: 0 10px;
+}
+button{
+    margin: 0 10px;
+    padding: 0;
+    width: 100%;
+    line-height: 40px;
+    font-size: 14pt;
+    border-radius: 5px;
+    color: whitesmoke;
+    background: #3bb7ff;
+}
+button:hover{
+    background: #0b96e7;
+    cursor: pointer;
+}
+.form-wrapper{
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid gray;
+}
+.form-body{
+    padding: 0;
+    margin: 0;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 20px 0;
+    justify-content: space-between;
+}
+.col{
+    width: 45%;
+    padding: 0 10px;
+    margin: 0;
+}
+label{
+    font-size: 14pt;
+    color: #444;
+    text-transform: capitalize;
+    display: block;
+    margin-bottom: 4px;
+}
+input{
+    background: #fafafa;
+    border: 1px solid #979797;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 14pt;
+    color: #444;
+    width: 100%;
+    line-height: 40px;
+    box-shadow: 1px 1px 2px #77777740;
+}
+.required::after{
+    margin-left: 2px;
+    content: "*";
+    color: orange;
+}
+input:disabled{
+    background-color: #c7c7c7;
+}
+.button-disabled,
+.button-disabled:hover{
+    background-color: lightgray;
+    cursor: default;
+}
+.errors {
+    padding: 0 10px;
+    color: red;
+}

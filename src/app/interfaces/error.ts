@@ -1,0 +1,3 @@
+interface FormError {
+    message: string;
+}
