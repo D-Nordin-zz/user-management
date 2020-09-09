@@ -45,7 +45,8 @@ label{
     display: block;
     margin-bottom: 4px;
 }
-input{
+input,
+select{
     background: #fafafa;
     border: 1px solid #979797;
     border-radius: 5px;
@@ -54,6 +55,7 @@ input{
     color: #444;
     width: 100%;
     line-height: 40px;
+    height: 40px;
     box-shadow: 1px 1px 2px #77777740;
 }
 .required::after{

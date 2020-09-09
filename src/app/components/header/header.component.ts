@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
 
   loggedInUser: string;
 
+  // get the logged in user from the user service
   ngOnInit() {
     this.loggedInUser = this.userService.getLoggedInUser();
   }

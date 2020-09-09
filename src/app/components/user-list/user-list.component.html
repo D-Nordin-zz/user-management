@@ -14,7 +14,7 @@
          <th colspan="2"></th>
       </tr>
       <ng-container *ngIf='userList != undefined'>
-         <tr *ngFor='let user of userList'>
+         <tr *ngFor='let user of shownUsers'>
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
             <td>{{user.emailAddress}}</td>
@@ -25,6 +25,15 @@
             <td><span (click)='showDeletePrompt(user)' class="warn link">Delete</span></td>
          </tr>
       </ng-container>
+      <tr>
+         <td colspan="100%" class="thin">
+            <div class="float-right">
+               <button class="page-button" (click)='previousPage()'>Previous</button>
+               <span>Page {{curPage}} of {{totalPages}}</span>
+               <button class="page-button" (click)='nextPage()'>Next</button>
+            </div>
+         </td>
+      </tr>
    </table>
    <div class="deleteContainer" *ngIf='showPrompt'>
       <div class="deletePrompt">

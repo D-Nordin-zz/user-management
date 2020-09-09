@@ -19,13 +19,16 @@
             </div>
             <div class="col">
                 <label class="required">Birthday</label>
-                <input type="date" formControlName="birthday">
+                <input type="date" max="{{today | date:'yyyy-MM-dd'}}" formControlName="birthday">
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label class="required">Employment Status</label>
-                <input type="text" formControlName="empStatus">
+                <select formControlName='empStatus'>
+                    <option value="Full-Time">Full-Time</option>
+                    <option value="Part-Time">Part-Time</option>
+                </select>
             </div>
             <div class="col">
                 <label>Favorite Color</label>

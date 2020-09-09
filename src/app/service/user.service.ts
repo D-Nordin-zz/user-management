@@ -24,16 +24,6 @@ export class UserService {
      return this.httpService.get<Array<User>>(this.userLink, { headers: this.headers });
   }
 
-  // gets a single users information
-  getUser(emailAddress): Observable<User> {
-    return this.httpService.post<User>(
-      this.userLink,
-      {
-        email: emailAddress
-      }
-    );
-  }
-
   // get the logged in user
   getLoggedInUser(): string {
     return 'Admin';

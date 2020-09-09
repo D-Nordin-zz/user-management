@@ -12,7 +12,7 @@ th{
     background-color: #cccccc;
 }
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid #ccc;
     padding: 10px 5px;
     text-align: center;
 }
@@ -86,4 +86,14 @@ tr:nth-child(even) {
     display: flex;
     justify-content: center;
     margin: 20px 0;
+}
+.float-right{
+    float: right;
+}
+.page-button{
+    width: 75px;
+    margin: 0 10px;
+}
+.thin{
+    padding: 5px 10px;
 }

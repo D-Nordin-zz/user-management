@@ -18,6 +18,7 @@ export class EditUserComponent implements OnInit, OnDestroy {
   ) { }
 
   editing: boolean;
+  today: Date;
   errors: Array<FormError>;
   userForm = new FormGroup({
     firstName: new FormControl('', [Validators.required]),
@@ -29,10 +30,12 @@ export class EditUserComponent implements OnInit, OnDestroy {
   });
 
   ngOnInit() {
+    this.today = new Date();
     this.setForumGroup();
     this.errors = [];
   }
 
+  // sets the form group to reflect the selected user if selected
   setForumGroup(): void {
     this.editing = false;
     if (this.userService.selectedUser) {
@@ -48,11 +51,12 @@ export class EditUserComponent implements OnInit, OnDestroy {
     }
   }
 
+  // check the form and submit it to the aws api
   submitForm(): void {
     this.errors = [];
     // validate the form along side the validation of the form
     if (this.userForm.valid) {
-      const color = this.userForm.controls.favColor.value === undefined ? null : this.userForm.controls.favColor.value;
+      const color = this.userForm.controls.favColor.value === undefined ? '' : this.userForm.controls.favColor.value;
       // crete the new user object
       const newUser: User = {
         firstName: this.userForm.controls.firstName.value,
@@ -62,9 +66,8 @@ export class EditUserComponent implements OnInit, OnDestroy {
         employmentStatus: this.userForm.controls.empStatus.value,
         favoriteColor: color
       };
-      console.log(newUser);
       // finally add the user to the database
-      if (this.userService.selectedUser === undefined) {
+      if (this.userService.selectedUser === null) {
         this.userService.addUser(newUser).subscribe(message => {
           // submit some data to a toast and redirect to the home page
           this.router.navigate(['/home']);
@@ -87,6 +90,7 @@ export class EditUserComponent implements OnInit, OnDestroy {
     }
   }
 
+  // remove the selected user when the component is destroyed
   ngOnDestroy() {
     this.userService.clearSelectedUser();
   }
